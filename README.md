@@ -127,6 +127,10 @@ Changing the data type of values. There are a few types of casts (from safest to
 	"Converts between types by reinterpreting the underlying bit pattern."
 - `(int)`
 	C-style cast. Can be any of the above.
+- `+n`
+	Converts an integer value to an integer of greater width.
+	If the original value was an unsigned integer of lesser width than `int`, it will be changed to a `signed` value as well.
+	
 
 
 ### Multi-Threading
@@ -135,6 +139,10 @@ Changing the data type of values. There are a few types of casts (from safest to
 // https://www.justsoftwaresolutions.co.uk/threading/multithreading-in-c++0x-part-1-starting-threads.html
 
 ### Implicit Conversions
+// TODO
+
+### Type Inference
+* `decltype`
 // TODO
 
 ### `class` vs. `struct`
@@ -161,6 +169,15 @@ Why is that?
 
 * Tamplates can also be specialized for specific parameters.
 * For more information see [this tutorial](http://www.cplusplus.com/doc/oldtutorial/templates).
+
+
+### Inheritance
+// TODO
+#### Virtual Functions
+// TODO
+
+### `friend`
+// TODO: https://isocpp.org/wiki/faq/friends
 
 
 # Other Weird Stuff
