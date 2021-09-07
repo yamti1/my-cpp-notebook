@@ -18,13 +18,15 @@ The following applies to both `const` and `volatile`:
 - Const variable:
 	`const int var`
 - Const reference:
-	`const Widget& var`
+	`const Widget& var`  
+	Equivalent to `Widget const& var` (called "East const").
 - Const pointer:
 	`char *const var`  
 	Read from right to left: var is a const pointer to a char.
 - Pointer to const:
 	`const char *var`  
-	Read from right to left: var is a pointer to a char which is const.
+	Read from right to left: var is a pointer to a char which is const.  
+	Equivalent to `char const *var` (called "East const").
 - Const method:
 	`void myMethod() const`
 	Promise that `myMethod` won't change `this`.
