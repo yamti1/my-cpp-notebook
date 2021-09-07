@@ -27,9 +27,17 @@ The following applies to both `const` and `volatile`:
 	`const char *var`  
 	Read from right to left: var is a pointer to a char which is const.  
 	Equivalent to `char const *var` (called "East const").
-- Const method:
-	`void myMethod() const`
-	Promise that `myMethod` won't change `this`.
+
+### Const Member Method
+`void myMethod() const`  
+Promise that `myMethod` won't change `this`.  
+- Actually means that `myMethod` should not change the logical state of `this`. That is, the external state that `this`'s users have access to (as opposed to the internal representation of that state that may change).
+- To allow a const member method to change the internal state of `this` without the compiler yelling at us, we sometimes need to decorate the internal-state member with the `mutable` keyword.
+- Also means that if `myMethod` needs to return a member of `this` it must return it by value or by const-reference. This is because const methods must not allow their callers to change `this`. Note that **the compiler does not always catches these errors**
+- Const Overloading is when you define two identical methods except for their constness. Used for defining the subscript (`[]`) operator.
+
+Note that referencing an object by a pointer-to-const or by reference-to-const does not mean the object cannot change,
+rather that it cannot be changed through that pointer/reference.
 
 ### `constexpr`
 `constexpr` means "know at compile-time".
