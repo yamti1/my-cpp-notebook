@@ -39,6 +39,8 @@ Promise that `myMethod` won't change `this`.
 Note that referencing an object by a pointer-to-const or by reference-to-const does not mean the object cannot change,
 rather that it cannot be changed through that pointer/reference.
 
+Also note that implicity casting a `Foo**` (a pointer to a pointer to Foo) to a `const Foo**` (a pointer to a pointer to a const Foo) is an error. This is because allowing such conversion might be exploited to by-pass the constness of a `const Foo`. See [this](https://isocpp.org/wiki/faq/const-correctness#constptrptr-conversion) for further explanation.
+
 ### `constexpr`
 `constexpr` means "know at compile-time".
 As apposed to `const` which means "[someone] promises not to change [something]".
