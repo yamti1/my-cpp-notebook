@@ -104,6 +104,11 @@ Written with `const &`. Enforeces that no changes are made to the argument passe
 #### Pass by rvalue reference:  # From C++11
 Written with `&&`. Enforces that the caller will not refer to the passed argument after the call. The argument is "moved" to the invoked function's possession. Can only be passed an rvalue, to ensure that the caller cannot refer to the argument again. Enables us to implement easily **Move Semantics** and **Perfect Forwarding**.
 
+#### Return a Reference
+Returning a reference from a function call allows to use that call in the left side of an assignment:
+```c++
+f() = 3;
+```
 
 ### Move Semantics
 Copying a resource can be expensive, and is unnecessary when it is an rvalue (= is going to be destroyed at the end of the statement). When an rvalue resource is used to construct a new object, the object may move the resource to its own possession, and "emptying" the original reference to it.
